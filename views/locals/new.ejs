@@ -1,0 +1,13 @@
+
+<div class="row">
+	<button class="btn btn-default pull-right" id="preset_position">Posicion actual</button>
+</div>
+<div class="row">
+	<form class="col-lg-7 col-sm-7" method="post" enctype="multipart/form-data" action="/locals/add">
+	    <% include _localForm.ejs %>
+	</form>
+	<div class="col-lg-5 col-sm-7" id="map"></div>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/mypath.css" />
+	<script type="text/javascript" src="../javascripts/localsapp.js"></script>
+	<script src="../javascripts/newlocalapp.js"></script>
+</div>

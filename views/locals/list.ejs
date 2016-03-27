@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-lg-6">
+        <a href="/locals/add" class="btn btn-success">Nuevo</a>
+    </div>
+    <div class="col-lg-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Buscar...">
+          <span class="input-group-btn">
+            <span class="glyphicon glyphicon-search btn btn-default"></span>
+          </span>
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+</div>
+<p></p>
+<div class="list-group">
+<% var i; for(i = 0; i < locals.length; i++){ %>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <span class="panel-title"><%= locals[i].name %></span>
+            <form id="deleteForm" method="post" action="/locals/<%= locals[i].id %>?_method=delete" class="btn btn-danger btn-sm pull-right">
+                    <span onClick="if(confirm('Seguro que desea borrar este local?')){ $('#deleteForm').submit(); }" class="glyphicon glyphicon-remove"> Eliminar</span>
+            </form>
+            <a href="/locals/<%= locals[i].id %>/edit" class="btn btn-default btn-sm pull-right">
+                <span class="glyphicon glyphicon-edit"> Editar</span>
+            </a>
+        </div>
+        <div class="panel-body">
+            <p><b>Categoría:</b> <%= {
+                food: "Comida rápida",
+                bar: "Bares y Discotecas",
+                store: "Suministros",
+                drugstore: "Farmacias"
+            }[locals[i].local_type] %></p>
+            <p><b>Teléfono:</b> <%= locals[i].telephone %></p>
+            <p><b>Dirección:</b> <%= locals[i].address %></p>
+            <p><b>Descripción:</b> <%= locals[i].description %></p>
+            <p><b>Horario:</b> <%= locals[i].schedule %></p>
+            <p><b>Latitud:</b> <%= locals[i].latitude %></p>
+            <p><b>Longitud:</b> <%= locals[i].longitude %></p>
+        </div>
+    </div>
+<% } %>
+</div>
+<script>
+    $('#options').children('li').removeClass('active');
+    var item = $('#options').children()[2];
+    $('#options').find(item).addClass('active');
+</script>

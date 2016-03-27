@@ -1,0 +1,31 @@
+<form class="col-lg-7 col-sm-7" method="post" enctype="multipart/form-data" action="/uploadLogo/<%= local.id %>?_method=put">
+	<fieldset class="form-group">
+	    <label for="logo">Logo</label>
+	    <p></p>
+	    <div class="img-rounded" id="logoIcon">
+	    </div>
+	    <input id="logoFile" type="file" name="logo" accept="image/*" onchange="loadImage();" class="form-control-file" id="exampleInputFile">
+	</fieldset>
+	<input id="save" type="submit" class="btn btn-success" value="Guardar">
+</form>
+<script>
+	function loadImage(){
+		var file = $("#logoFile")["0"].files[0];
+		var reader = new FileReader();
+		reader.onloadend = function(){
+			$(".img-thumbnail").remove();
+			var el = $("<img>");
+			el.attr("src", reader.result);
+			el.addClass("img-thumbnail");
+			$("#logoIcon").append(el);
+			el.width(200);
+			el.height(200);
+		};
+
+		if(file){
+			reader.readAsDataURL(file);
+		}else{
+			$("#logoIcon").attr("src", "");
+		}
+	};
+</script>

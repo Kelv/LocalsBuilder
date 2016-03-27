@@ -1,0 +1,49 @@
+
+        <div class="form-group" id="logo">
+            <fieldset class="form-group">
+                <label for="logo">Logo</label>
+                <p></p>
+                <div class="img-rounded" id="logoIcon">
+                    <img class="img-thumbnail" width="250" height="250" src="<%= local.logo_url ? local.logo_url : 'http://placehold.it/150x150' %>">
+                </div>
+                <input id="logoFile" type="file" name="logo" accept="image/*" onchange="loadImage();" class="form-control-file" id="exampleInputFile">
+            </fieldset>
+        </div>
+        <div class="form-group">
+            <label for="name">Nombre de local</label>
+            <input type="text" class="form-control" id="name" name="local[name]" value="<%= local.name %>"placeholder="Nombre">
+        </div>
+        <div class="form-group">
+            <label for="local_type">Categoría</label>
+            <select name="local[local_type]" class="form-control">
+                <option value="food" selected>Comida rápida</option>
+                <option value="bar">Bares y Discotecas</option>
+                <option value="store">Suministros</option>
+                <option value="drugstore">Farmacias</option>
+            </select><p>
+        </div>
+        <div class="form-group">
+            <label for="telephone">Teléfono</label>
+            <input type="text" class="form-control" id="telephone" name="local[telephone]" value="<%= local.telephone %>" placeholder="Teléfono"
+                   onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+        </div>
+        <div class="form-group">
+            <label for="address">Dirección</label>
+            <input type="text" class="form-control" id="address" name="local[address]" value="<%= local.address %>" placeholder="Dirección">
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción</label>
+            <input type="text" class="form-control" id="description" name="local[description]" value="<%= local.description %>" placeholder="Descripción">
+        </div>
+        <div class="form-group">
+            <label for="schedule">Horario</label>
+            <input type="text" class="form-control" id="schedule" name="local[schedule]" value="<%= local.schedule %>" placeholder="Horarios">
+        </div> 
+        <div class="form-group">
+            <label for="coord">Coordenadas</label>
+            <h5>Latitud</h5>
+            <input type="text" class="form-control" id="latitude" name="local[latitude]" value="<%= local.latitude %>" placeholder="Latitud">
+            <h5>Longitud</h5>
+            <input type="text" class="form-control" id="longitude" name="local[longitude]" value="<%= local.longitude %>" placeholder="Longitud">
+        </div>
+        <input id="save" type="submit" class="btn btn-success pull-right" value="Guardar">
