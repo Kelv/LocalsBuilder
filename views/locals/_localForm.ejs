@@ -4,7 +4,7 @@
                 <label for="logo">Logo</label>
                 <p></p>
                 <div class="img-rounded" id="logoIcon">
-                    <img class="img-thumbnail" width="250" height="250" src="<%= local.logo_url ? local.logo_url : 'http://placehold.it/150x150' %>">
+                    <img class="img-thumbnail" width="250" name="local[logo_url]" height="250" src="<%= local.logo_url ? local.logo_url : 'http://placehold.it/150x150' %>">
                 </div>
                 <input id="logoFile" type="file" name="logo" accept="image/*" onchange="loadImage();" class="form-control-file" id="exampleInputFile">
             </fieldset>
@@ -16,10 +16,10 @@
         <div class="form-group">
             <label for="local_type">Categoría</label>
             <select name="local[local_type]" class="form-control">
-                <option value="food" selected>Comida rápida</option>
-                <option value="bar">Bares y Discotecas</option>
-                <option value="store">Suministros</option>
-                <option value="drugstore">Farmacias</option>
+                <option value="food" <%= local.local_type == 'food' ? 'selected':'' %>>Comida rápida</option>
+                <option value="bar" <%= local.local_type == 'bar' ? 'selected':'' %>>Bares y Discotecas</option>
+                <option value="store" <%= local.local_type == 'store' ? 'selected':'' %>>Suministros</option>
+                <option value="drugstore" <%= local.local_type == 'drugstore' ? 'selected':'' %>>Farmacias</option>
             </select><p>
         </div>
         <div class="form-group">

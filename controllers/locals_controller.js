@@ -74,6 +74,6 @@ exports.update = function(req,res,next){
 	// Save data to database
 	model.update(req.params.localId, data, function(err, savedData){
 		if(err) { return next(err);}
-		res.redirect(req.baseUrl + '/' + savedData.id);
+		res.redirect(req.baseUrl);
 	});
 };
