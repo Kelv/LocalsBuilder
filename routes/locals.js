@@ -20,8 +20,11 @@ localRouter.route('/add')
 // Requests to /locals/:localId
 localRouter.route('/:localId')
 // .all(localsController.all)
-.get(localsController.getById)
-.delete(localsController.deleteById);
+.get(localsController.getById);
+
+// Requests to /locals/:localId/delete
+localRouter.route('/:localId/delete')
+.get(localsController.deleteById);
 
 // Requests to '/locals/:localId/edit'
 localRouter.route('/:localId/edit')

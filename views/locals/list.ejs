@@ -17,7 +17,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading">
             <span class="panel-title"><%= locals[i].name %></span>
-            <form id="deleteForm" method="post" action="/locals/<%= locals[i].id %>?_method=delete" class="btn btn-danger btn-sm pull-right">
+            <form id="deleteForm" method="get" action="/locals/<%= locals[i].id %>/delete" class="btn btn-danger btn-sm pull-right">
                     <span onClick="if(confirm('Seguro que desea borrar este local?')){ $('#deleteForm').submit(); }" class="glyphicon glyphicon-remove"> Eliminar</span>
             </form>
             <a href="/locals/<%= locals[i].id %>/edit" class="btn btn-default btn-sm pull-right">
